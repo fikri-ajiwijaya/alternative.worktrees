@@ -16,5 +16,6 @@ COPY --chmod=644 --chown="${USERNAME}:${USERNAME}" '.vimrc' "/home/${USERNAME}"
 COPY --chmod=755 'dotfiles_hook' '/usr/local/bin'
 RUN install -d -o "${USERNAME}" -g "${USERNAME}" "/home/${USERNAME}/dotfiles" && \
     install -d -o "${USERNAME}" -g "${USERNAME}" "/workspaces/${COMPOSE_PROJECT_NAME}" && \
+    install -d -o "${USERNAME}" -g "${USERNAME}" "/workspaces/${COMPOSE_PROJECT_NAME}/host" && \
     install -d -o "${USERNAME}" -g "${USERNAME}" "/workspaces/alternative/${COMPOSE_PROJECT_NAME}" && \
     sed -i '/PS1.*\\\$/s/\\\$/\\n\0/' "/home/${USERNAME}/.bashrc"

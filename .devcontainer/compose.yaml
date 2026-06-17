@@ -20,10 +20,14 @@ services:
         target: /workspaces/alternative/${COMPOSE_PROJECT_NAME}
       - type: bind
         source: ../../../${COMPOSE_PROJECT_NAME}
-        target: /workspaces/${COMPOSE_PROJECT_NAME}
+        target: /workspaces/${COMPOSE_PROJECT_NAME}/host
       - type: volume
         source: dotfiles
         target: /home/${USERNAME}/dotfiles
+      - type: volume
+        source: worktrees
+        target: /workspaces/${COMPOSE_PROJECT_NAME}
 
 volumes:
   dotfiles:
+  worktrees:
